@@ -34,12 +34,12 @@ inicio
 fimprocedimento
 procedimento cadastro()  // Menu de cadastro
 inicio
-      limpatela
-      escreval("----------------------")
-      escreval(" CADASTRO DE CLIENTES ")
-      escreval("----------------------")
       repita
            cont <- cont + 1
+           limpatela
+           escreval("----------------------")
+           escreval(" CADASTRO DE CLIENTES ")
+           escreval("----------------------")
            escreva("Nome completo: ")
            leia(nomecl[cont])
            escreva("CPF: ")
@@ -51,8 +51,13 @@ inicio
            escreva("Estado: ")
            leia(estadocl[cont])
            escreval()
-           escreva("Cadastrar outra pessoa? [S/N]")
-           leia(sn)
+           repita
+                 escreva("Cadastrar outra pessoa? [S/N]")
+                 leia(sn)
+                 se (maiusc(sn) <> "S") entao
+                    escreval("INVALIDO!!!! Só digite 'S' ou 'N'")
+                 fimse
+           ate((maiusc(sn) = "S") ou (maiusc(sn) = "N"))
       ate (maiusc(sn) = "N")
       menu()
 fimprocedimento
