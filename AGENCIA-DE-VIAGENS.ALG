@@ -18,7 +18,7 @@ procedimento menu() // Menu principal
 inicio
       limpatela
       escreval("----------------------------")
-      escreval("Agência de Viagens RecodePro")
+      escreval("AGÊNCIA DE VIAGENS RECODEPRO")
       escreval("----------------------------")
       escreval()
       escreval("[1] CADASTRAR CLIENTES")
@@ -30,11 +30,14 @@ inicio
              caso 1
                   limpatela
                   cadastro()
+             caso 2
+                  limpatela
+                  destino()
              caso 3
                   limpatela
                   consulta()
              outrocaso
-                      escreval("Obrigado pela escolha dos nosso serviços")
+                      escreval("Obrigado, Boa Viagem!")
       fimescolha
 fimprocedimento    // Fim menu principal
 
@@ -55,7 +58,7 @@ inicio
            cpf[cont] <- cpfcl
            escreva("Endereço: ")
            leia(endcl)
-           and[cont] <- endcl
+           end[cont] <- endcl
            escreva("Cidade: ")
            leia(cidadecl)
            cidade[cont] <- cidadecl
@@ -74,7 +77,21 @@ inicio
       menu()
 fimprocedimento // Fim menu de cadastro
 
-procedimento consulta() //Menu de conssulta
+procedimento destino()    //Menu de Destino
+inicio
+      repita
+            repita
+                  escreva("Cadastrar Destino de outra pessoa? [S/N]")
+                  leia(sn)
+                  se (maiusc(sn) <> "S") entao
+                     escreval("INVALIDO!!!! Só digite 'S' ou 'N'")
+                  fimse
+            ate((maiusc(sn) = "S") ou (maiusc(sn) = "N"))
+      ate (maiusc(sn) = "N")
+      menu()
+fimprocedimento    // Fim menu de destino
+
+procedimento consulta() //Menu de consulta
 inicio
       para cont <- 1 ate tot faca
           escreval("---------------")
