@@ -5,13 +5,14 @@ Algoritmo "agencia-de-viagens"
 // Autor(a)    : Lucas Sebatião de Araújo
 // Data atual  : 07/07/2022
 Var
-   nomecl, endcl, cidadecl, estadocl, sn: caractere
-   cpfcl, cont, opcao, tot, cpfcad: inteiro
+   nomecl, endcl, cidadecl, estadocl, sn, destcl: caractere
+   cpfcl, cont, opcao, tot, cpfcad, totdest, cpfcons: inteiro
    nome: vetor[1..50] de caractere
    cpf: vetor[1..50] de inteiro
    end: vetor[1..50] de caractere
    cidade: vetor[1..50] de caractere
    estado: vetor[1..50] de caractere
+   dest: vetor[1..50] de caractere
 
 
 procedimento menu() // Menu principal
@@ -84,14 +85,25 @@ inicio
       escreval("-------------------")
       escreval()
       repita
+            totdest <- totdest + 1
             escreval("Digite seu CPF: ")
             leia(cpfcad)
             para cont <- 1 ate tot faca
                   se (cpfcad = cpf[cont]) entao
                      escreval("Nome: ", nome[cont])
-                     escreval("CPF: ", cpf[cont])
                   fimse
             fimpara
+            escreva("Pra onde será a viagem? ")
+            leia(destcl)
+
+            para cont <- 1 ate tot faca
+                  cont <- cont + 1
+                  dest[cont] <- destcl
+                  se(dest[cont] = cpf[cont]) entao
+                     dest[cont] <- dest[cont]
+                  fimse
+            fimpara
+            escreval()
             repita
                   escreva("Cadastrar Destino de outra pessoa? [S/N]")
                   leia(sn)
@@ -106,14 +118,15 @@ fimprocedimento    // Fim menu de destino
 procedimento consulta() //Menu de consulta
 inicio
       para cont <- 1 ate tot faca
-          escreval("---------------")
-          escreval(cont,"º Cadastro")
-          escreval()
-          escreval("Nome: ", nome[cont])
-          escreval("CPF: ", cpf[cont])
-          escreval("Endereço: ", (maiusc(end[cont])))
-          escreval("Cidade: ", cidade[cont])
-          escreval("Estado: ", estado[cont])
+             escreval("---------------")
+             escreval(cont,"º Cadastro")
+             escreval()
+             escreval("Nome: ", nome[cont])
+             escreval("CPF: ", cpf[cont])
+             escreval("Endereço: ", (maiusc(end[cont])))
+             escreval("Cidade: ", cidade[cont])
+             escreval("Estado: ", estado[cont])
+             escreval("Destino da Viagem: ", dest[cont])
       fimpara
       repita
             escreval()
