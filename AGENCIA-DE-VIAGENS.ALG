@@ -1,12 +1,12 @@
 Algoritmo "agencia-de-viagens"
 // Disciplina  : [Linguagem e Lógica de Programação]
-// Professor   : Antonio Carlos Nicolodi 
+// Professor   : Antonio Carlos Nicolodi
 // Descrição   : Aplicativo de agencia de viagens RecodePro
 // Autor(a)    : Lucas Sebatião de Araújo
 // Data atual  : 07/07/2022
 Var
    nomecl, endcl, cidadecl, estadocl, sn: caractere
-   cpfcl, cont, opcao, tot, totcad: inteiro
+   cpfcl, cont, opcao, tot, cpfcad: inteiro
    nome: vetor[1..50] de caractere
    cpf: vetor[1..50] de inteiro
    end: vetor[1..50] de caractere
@@ -79,14 +79,19 @@ fimprocedimento // Fim menu de cadastro
 
 procedimento destino()    //Menu de Destino
 inicio
+      escreval("-------------------")
+      escreval("CADASTRO DE DESTINO")
+      escreval("-------------------")
+      escreval()
       repita
-            totcad <- totcad + 1
-            escreval("-------------------")
-            escreval("CADASTRO DE DESTINO")
-            escreval("-------------------")
-            escreval()
             escreval("Digite seu CPF: ")
-            //parei aqui
+            leia(cpfcad)
+            para cont <- 1 ate tot faca
+                  se (cpfcad = cpf[cont]) entao
+                     escreval("Nome: ", nome[cont])
+                     escreval("CPF: ", cpf[cont])
+                  fimse
+            fimpara
             repita
                   escreva("Cadastrar Destino de outra pessoa? [S/N]")
                   leia(sn)
