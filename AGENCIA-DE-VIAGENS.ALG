@@ -12,39 +12,50 @@ Var
    estadocl: vetor[1..50] de caractere
    cont, opcao: inteiro
    sn: caractere
-
-procedimento cadastro()
+procedimento menu() //Menu principal
 inicio
       limpatela
-      escreval("--------------------")
-      escreval("CADASTRO DE CLIENTES")
-      escreval("--------------------")
-      repita
-           escreva("Nome completo: ", nomecl[cont])
-           escreva("CPF: ", cpfcl[cont])
-           escreva("Endereço: ", endcl[cont])
-           escreva("Cidade: ", cidadecl[cont])
-           escreva("Estado: ", estadocl[cont])
-           escreval()
-           escreva("Cadastrar outra pessoa? [S/N]")
-           leia(sn)
-      ate (sn = "S") || (sn = "s")
-fimprocedimento
-Inicio
-      escreva("----------------------------")
-      escreva("Agência de Viagens RecodePro")
-      escreva("----------------------------")
+      escreval("----------------------------")
+      escreval("Agência de Viagens RecodePro")
+      escreval("----------------------------")
       escreval()
       escreval("[1] CADASTRAR CLIENTES")
       escreval("[2] CADASTRAR DESTINO")
       escreval("[3] CONSULTAR DADOS DE VIAGEM")
       escreval("[4] PARA SAIR")
-      laia(opcao)
+      leia(opcao)
       escolha opcao
              caso 1
                   limpatela
-                  cadstro()
+                  cadastro()
              outrocaso
                       escreval("Obrigado pela escolha dos nosso serviços")
       fimescolha
+fimprocedimento
+procedimento cadastro()  // Menu de cadastro
+inicio
+      limpatela
+      escreval("----------------------")
+      escreval(" CADASTRO DE CLIENTES ")
+      escreval("----------------------")
+      repita
+           cont <- cont + 1
+           escreva("Nome completo: ")
+           leia(nomecl[cont])
+           escreva("CPF: ")
+           leia(cpfcl[cont])
+           escreva("Endereço: ")
+           leia(endcl[cont])
+           escreva("Cidade: ")
+           leia(cidadecl[cont])
+           escreva("Estado: ")
+           leia(estadocl[cont])
+           escreval()
+           escreva("Cadastrar outra pessoa? [S/N]")
+           leia(sn)
+      ate (maiusc(sn) = "N")
+      menu()
+fimprocedimento
+Inicio
+      menu()
 Fimalgoritmo
