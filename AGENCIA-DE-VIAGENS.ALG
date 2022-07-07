@@ -6,7 +6,7 @@ Algoritmo "agencia-de-viagens"
 // Data atual  : 07/07/2022
 Var
    nomecl, endcl, cidadecl, estadocl, sn: caractere
-   cpfcl, cont, opcao, tot: inteiro
+   cpfcl, cont, opcao, tot, totcad: inteiro
    nome: vetor[1..50] de caractere
    cpf: vetor[1..50] de inteiro
    end: vetor[1..50] de caractere
@@ -56,15 +56,15 @@ inicio
            escreva("CPF: ")
            leia(cpfcl)
            cpf[cont] <- cpfcl
-           escreva("Endereço: ")
-           leia(endcl)
-           end[cont] <- endcl
-           escreva("Cidade: ")
-           leia(cidadecl)
-           cidade[cont] <- cidadecl
-           escreva("Estado (ex. RJ, SP):")
-           leia(estadocl)
-           estado[cont] <- estadocl
+           //escreva("Endereço: ")
+           //leia(endcl)
+           //end[cont] <- endcl
+           //escreva("Cidade: ")
+           //leia(cidadecl)
+           //cidade[cont] <- cidadecl
+           //escreva("Estado (ex. RJ, SP):")
+           //leia(estadocl)
+           //estado[cont] <- estadocl
            escreval()
            repita
                  escreva("Cadastrar outra pessoa? [S/N]")
@@ -80,6 +80,13 @@ fimprocedimento // Fim menu de cadastro
 procedimento destino()    //Menu de Destino
 inicio
       repita
+            totcad <- totcad + 1
+            escreval("-------------------")
+            escreval("CADASTRO DE DESTINO")
+            escreval("-------------------")
+            escreval()
+            escreval("Digite seu CPF: ")
+            //parei aqui
             repita
                   escreva("Cadastrar Destino de outra pessoa? [S/N]")
                   leia(sn)
