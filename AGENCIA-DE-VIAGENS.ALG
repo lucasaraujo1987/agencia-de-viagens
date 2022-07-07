@@ -5,14 +5,16 @@ Algoritmo "agencia-de-viagens"
 // Autor(a)    : Lucas Sebatião de Araújo
 // Data atual  : 07/07/2022
 Var
-   nomecl: vetor[1..50] de caractere
-   cpfcl: vetor[1..50] de inteiro
-   endcl: vetor[1..50] de caractere
-   cidadecl: vetor[1..50] de caractere
-   estadocl: vetor[1..50] de caractere
-   cont, opcao: inteiro
-   sn: caractere
-procedimento menu() //Menu principal
+   nomecl, endcl, cidadecl, estadocl, sn: caractere
+   cpfcl, cont, opcao, tot: inteiro
+   nome: vetor[1..50] de caractere
+   cpf: vetor[1..50] de inteiro
+   end: vetor[1..50] de caractere
+   cidade: vetor[1..50] de caractere
+   estado: vetor[1..50] de caractere
+
+
+procedimento menu() // Menu principal
 inicio
       limpatela
       escreval("----------------------------")
@@ -21,35 +23,45 @@ inicio
       escreval()
       escreval("[1] CADASTRAR CLIENTES")
       escreval("[2] CADASTRAR DESTINO")
-      escreval("[3] CONSULTAR DADOS DE VIAGEM")
+      escreval("[3] CONSULTAR DADOS DA VIAGEM")
       escreval("[4] PARA SAIR")
       leia(opcao)
       escolha opcao
              caso 1
                   limpatela
                   cadastro()
+             caso 3
+                  limpatela
+                  consulta()
              outrocaso
                       escreval("Obrigado pela escolha dos nosso serviços")
       fimescolha
-fimprocedimento
+fimprocedimento    // Fim menu principal
+
 procedimento cadastro()  // Menu de cadastro
 inicio
       repita
            cont <- cont + 1
+           tot <- tot + 1
            limpatela
            escreval("----------------------")
            escreval(" CADASTRO DE CLIENTES ")
            escreval("----------------------")
            escreva("Nome completo: ")
-           leia(nomecl[cont])
+           leia(nomecl)
+           nome[cont] <- nomecl
            escreva("CPF: ")
-           leia(cpfcl[cont])
+           leia(cpfcl)
+           cpf[cont] <- cpfcl
            escreva("Endereço: ")
-           leia(endcl[cont])
+           leia(endcl)
+           and[cont] <- endcl
            escreva("Cidade: ")
-           leia(cidadecl[cont])
-           escreva("Estado: ")
-           leia(estadocl[cont])
+           leia(cidadecl)
+           cidade[cont] <- cidadecl
+           escreva("Estado (ex. RJ, SP):")
+           leia(estadocl)
+           estado[cont] <- estadocl
            escreval()
            repita
                  escreva("Cadastrar outra pessoa? [S/N]")
@@ -60,7 +72,31 @@ inicio
            ate((maiusc(sn) = "S") ou (maiusc(sn) = "N"))
       ate (maiusc(sn) = "N")
       menu()
-fimprocedimento
+fimprocedimento // Fim menu de cadastro
+
+procedimento consulta() //Menu de conssulta
+inicio
+      para cont <- 1 ate tot faca
+          escreval("---------------")
+          escreval(cont,"º Cadastro")
+          escreval()
+          escreval("Nome: ", nome[cont])
+          escreval("CPF: ", cpf[cont])
+          escreval("Endereço: ", (maiusc(end[cont])))
+          escreval("Cidade: ", cidade[cont])
+          escreval("Estado: ", estado[cont])
+      fimpara
+      repita
+            escreval()
+            escreva("Digite 'S' e de 'ENTER' para Menu Principal: ")
+            leia(sn)
+            se (maiusc(sn) <> "S") entao
+                escreval("INVALIDO!!!! Digite 'S' para Menu Principal: ")
+            fimse
+      ate (maiusc(sn) = "S")
+      menu()
+fimprocedimento // Fim menu de consulta
+
 Inicio
       menu()
 Fimalgoritmo
