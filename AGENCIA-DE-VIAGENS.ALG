@@ -107,12 +107,13 @@ inicio
                      escreva("Local de Destino: ")
                      leia(destcl)
                      dest[cont] <- destcl
-
+                  senao
+                     escreval("CPF inválido, Digite novamente!")
                   fimse
             fimpara
             escreval()
             repita
-                  escreva("Cadastrar Destino de outra pessoa? [S/N]")
+                  escreva("Cadastrar Destino? [S/N]")
                   leia(sn)
                   se (maiusc(sn) <> "S") entao
                      escreval("INVALIDO!!!! Só digite 'S' ou 'N'")
@@ -164,11 +165,13 @@ inicio
                       escreval("Estado: ", estado[cont])
                       escreval("Local de Embarque: ", emb[cont])
                       escreval("Destino da Viagem: ", dest[cont])
+                  senao
+                      escreval("CPF inválido, digite novamente!")
                   fimse
             fimpara
             escreval()
             repita
-                  escreva("Verificar Destino de outra pessoa? [S/N]")
+                  escreva("Verificar Cadastro? [S/N]")
                   leia(sn)
                   limpatela
                   se (maiusc(sn) <> "S") entao
@@ -186,8 +189,8 @@ inicio
       escreval("--------------------")
       escreval()
       para cont <- 1 ate tot faca
-             escreval("Embarque: ", emb[cont]:30)
-             escreval("Destino: ", dest[cont]:30)
+             escreval("Embarque: ", emb[cont])
+             escreval("Destino: ", dest[cont])
              escreval()
       fimpara
       repita
