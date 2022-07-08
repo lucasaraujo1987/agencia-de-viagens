@@ -25,8 +25,9 @@ inicio
       escreval()
       escreval("[1] CADASTRAR CLIENTES")
       escreval("[2] CADASTRAR DESTINO")
-      escreval("[3] CONSULTAR DADOS DA VIAGEM")
-      escreval("[4] PARA SAIR")
+      escreval("[3] CONSULTAR TOTAL CADASTRADO")
+      escreval("[4] CONSULTAR CLIENTE ESPECÍFICO")
+      escreval("[5] PARA SAIR")
       leia(opcao)
       escolha opcao
              caso 1
@@ -38,6 +39,9 @@ inicio
              caso 3
                   limpatela
                   consulta()
+             caso 4
+                  limpatela
+                  cliente()
              outrocaso
                       escreval("Obrigado, Boa Viagem!")
       fimescolha
@@ -138,6 +142,38 @@ inicio
       ate (maiusc(sn) = "S")
       menu()
 fimprocedimento // Fim menu de consulta
+
+procedimento cliente()   //Menu Cliente Específico
+inicio
+      repita
+            escreval("Digite seu CPF: ")
+            leia(cpfcad)
+            para cont <- 1 ate tot faca
+                  se (cpfcad = cpf[cont]) entao
+                      escreval("---------------")
+                      escreval(cont,"º Cadastro")
+                      escreval()
+                      escreval("Nome: ", nome[cont])
+                      escreval("CPF: ", cpf[cont])
+                      escreval("Endereço: ", (maiusc(end[cont])))
+                      escreval("Cidade: ", cidade[cont])
+                      escreval("Estado: ", estado[cont])
+                      escreval("Local de Embarque: ", emb[cont])
+                      escreval("Destino da Viagem: ", dest[cont])
+                  fimse
+            fimpara
+            escreval()
+            repita
+                  escreva("Verificar Destino de outra pessoa? [S/N]")
+                  leia(sn)
+                  limpatela
+                  se (maiusc(sn) <> "S") entao
+                     escreval("INVALIDO!!!! Só digite 'S' ou 'N'")
+                  fimse
+            ate((maiusc(sn) = "S") ou (maiusc(sn) = "N"))
+      ate (maiusc(sn) = "N")
+      menu()
+fimprocedimento    // Fim menu Cliente Específico
 
 Inicio
       menu()
