@@ -95,12 +95,10 @@ inicio
             fimpara
             escreva("Pra onde será a viagem? ")
             leia(destcl)
-
-            para cont <- 1 ate tot faca
-                  cont <- cont + 1
-                  dest[cont] <- destcl
-                  se(dest[cont] = cpf[cont]) entao
-                     dest[cont] <- dest[cont]
+            dest[totdest] <- destcl
+            para cont <- 1 ate totdest faca
+                  se(dest[totdest] = cpf[cont]) entao
+                     dest[totdest] <- destcl
                   fimse
             fimpara
             escreval()
