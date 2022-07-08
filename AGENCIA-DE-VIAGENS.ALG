@@ -5,13 +5,14 @@ Algoritmo "agencia-de-viagens"
 // Autor(a)    : Lucas Sebatião de Araújo
 // Data atual  : 07/07/2022
 Var
-   nomecl, endcl, cidadecl, estadocl, sn, destcl: caractere
-   cpfcl, cont, opcao, tot, cpfcad, totdest, cpfcons: inteiro
+   nomecl, endcl, cidadecl, estadocl, sn, destcl, embcl: caractere
+   cpfcl, cont, opcao, tot, cpfcad: inteiro
    nome: vetor[1..50] de caractere
    cpf: vetor[1..50] de inteiro
    end: vetor[1..50] de caractere
    cidade: vetor[1..50] de caractere
    estado: vetor[1..50] de caractere
+   emb: vetor[1..50] de caractere
    dest: vetor[1..50] de caractere
 
 
@@ -57,6 +58,8 @@ inicio
            escreva("CPF: ")
            leia(cpfcl)
            cpf[cont] <- cpfcl
+           emb[cont] <- ""
+           dest[cont] <- ""
            //escreva("Endereço: ")
            //leia(endcl)
            //end[cont] <- endcl
@@ -85,20 +88,18 @@ inicio
       escreval("-------------------")
       escreval()
       repita
-            totdest <- totdest + 1
             escreval("Digite seu CPF: ")
             leia(cpfcad)
             para cont <- 1 ate tot faca
                   se (cpfcad = cpf[cont]) entao
                      escreval("Nome: ", nome[cont])
-                  fimse
-            fimpara
-            escreva("Pra onde será a viagem? ")
-            leia(destcl)
-            dest[totdest] <- destcl
-            para cont <- 1 ate totdest faca
-                  se(dest[totdest] = cpf[cont]) entao
-                     dest[totdest] <- destcl
+                     escreva("Local de Embarque: ")
+                     leia(embcl)
+                     emb[cont] <- embcl
+                     escreva("Local de Destino: ")
+                     leia(destcl)
+                     dest[cont] <- destcl
+
                   fimse
             fimpara
             escreval()
@@ -124,6 +125,7 @@ inicio
              escreval("Endereço: ", (maiusc(end[cont])))
              escreval("Cidade: ", cidade[cont])
              escreval("Estado: ", estado[cont])
+             escreval("Local de Embarque: ", emb[cont])
              escreval("Destino da Viagem: ", dest[cont])
       fimpara
       repita
