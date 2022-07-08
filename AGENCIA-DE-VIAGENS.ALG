@@ -5,10 +5,10 @@ Algoritmo "agencia-de-viagens"
 // Autor(a)    : Lucas Sebatião de Araújo
 // Data atual  : 07/07/2022
 Var
-   nomecl, endcl, cidadecl, estadocl, sn, destcl, embcl: caractere
-   cpfcl, cont, opcao, tot, cpfcad: inteiro
+   cpfcl, nomecl, endcl, cidadecl, estadocl, sn, destcl, embcl, cpfcad: caractere
+   cont, opcao, tot: inteiro
    nome: vetor[1..50] de caractere
-   cpf: vetor[1..50] de inteiro
+   cpf: vetor[1..50] de caractere
    end: vetor[1..50] de caractere
    cidade: vetor[1..50] de caractere
    estado: vetor[1..50] de caractere
