@@ -27,7 +27,8 @@ inicio
       escreval("[2] CADASTRAR DESTINO")
       escreval("[3] CONSULTAR TOTAL CADASTRADO")
       escreval("[4] CONSULTAR CLIENTE ESPECÍFICO")
-      escreval("[5] PARA SAIR")
+      escreval("[5] CONSULTAR TODOS OS DESTINOS")
+      escreval("[6] PARA SAIR")
       leia(opcao)
       escolha opcao
              caso 1
@@ -42,6 +43,9 @@ inicio
              caso 4
                   limpatela
                   cliente()
+             caso 5
+                  limpatela
+                  destinoscad()
              outrocaso
                       escreval("Obrigado, Boa Viagem!")
       fimescolha
@@ -64,15 +68,15 @@ inicio
            cpf[cont] <- cpfcl
            emb[cont] <- ""
            dest[cont] <- ""
-           //escreva("Endereço: ")
-           //leia(endcl)
-           //end[cont] <- endcl
-           //escreva("Cidade: ")
-           //leia(cidadecl)
-           //cidade[cont] <- cidadecl
-           //escreva("Estado (ex. RJ, SP):")
-           //leia(estadocl)
-           //estado[cont] <- estadocl
+           escreva("Endereço: ")
+           leia(endcl)
+           end[cont] <- endcl
+           escreva("Cidade: ")
+           leia(cidadecl)
+           cidade[cont] <- cidadecl
+           escreva("Estado (ex. RJ, SP):")
+           leia(estadocl)
+           estado[cont] <- estadocl
            escreval()
            repita
                  escreva("Cadastrar outra pessoa? [S/N]")
@@ -134,7 +138,7 @@ inicio
       fimpara
       repita
             escreval()
-            escreva("Digite 'S' e de 'ENTER' para Menu Principal: ")
+            escreva("Digite 'S' e de 'ENTER' para voltar ao Menu Principal: ")
             leia(sn)
             se (maiusc(sn) <> "S") entao
                 escreval("INVALIDO!!!! Digite 'S' para Menu Principal: ")
@@ -174,6 +178,28 @@ inicio
       ate (maiusc(sn) = "N")
       menu()
 fimprocedimento    // Fim menu Cliente Específico
+
+procedimento destinoscad()
+inicio
+      escreval("--------------------")
+      escreval("DESTINOS CADASTRADOS")
+      escreval("--------------------")
+      escreval()
+      para cont <- 1 ate tot faca
+             escreval("Embarque: ", emb[cont]:30)
+             escreval("Destino: ", dest[cont]:30)
+             escreval()
+      fimpara
+      repita
+            escreval()
+            escreva("Digite 'S' e de 'ENTER' para voltar ao Menu Principal: ")
+            leia(sn)
+            se (maiusc(sn) <> "S") entao
+                escreval("INVALIDO!!!! Digite 'S' para Menu Principal: ")
+            fimse
+      ate (maiusc(sn) = "S")
+      menu()
+fimprocedimento
 
 Inicio
       menu()
