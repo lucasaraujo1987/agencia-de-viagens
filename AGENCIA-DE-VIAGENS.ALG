@@ -107,8 +107,6 @@ inicio
                      escreva("Local de Destino: ")
                      leia(destcl)
                      dest[cont] <- destcl
-                  senao
-                     escreval("CPF inválido, Digite novamente!")
                   fimse
             fimpara
             escreval()
@@ -125,6 +123,7 @@ fimprocedimento    // Fim menu de destino
 
 procedimento consulta() //Menu de consulta
 inicio
+      escreval("Total de", tot, " clientes cadastrados.")
       para cont <- 1 ate tot faca
              escreval("---------------")
              escreval(cont,"º Cadastro")
@@ -165,8 +164,6 @@ inicio
                       escreval("Estado: ", estado[cont])
                       escreval("Local de Embarque: ", emb[cont])
                       escreval("Destino da Viagem: ", dest[cont])
-                  senao
-                      escreval("CPF inválido, digite novamente!")
                   fimse
             fimpara
             escreval()
