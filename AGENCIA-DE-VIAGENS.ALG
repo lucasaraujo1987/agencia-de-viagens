@@ -1,7 +1,7 @@
 Algoritmo "agencia-de-viagens"
 // Disciplina  : [Linguagem e Lógica de Programação]
 // Professor   : Artur Brandt
-// Descrição   : Aplicativo de agencia de viagens RecodePro
+// Descrição   : Aplicativo de agencia de viagens MaGi World Travel
 // Autor(a)    : Lucas Sebatião de Araújo
 // Data atual  : 07/07/2022
 Var
@@ -20,7 +20,7 @@ procedimento menu() // Menu principal
 inicio
       limpatela
       escreval("----------------------------")
-      escreval("AGÊNCIA DE VIAGENS RECODEPRO")
+      escreval("      MAGI WORLD TRAVEL     ")
       escreval("----------------------------")
       escreval()
       escreval("[1] CADASTRAR CLIENTES")
